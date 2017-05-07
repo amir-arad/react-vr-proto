@@ -12,7 +12,9 @@ export default class proto extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
+        <Pano source={[asset('starsRight.png'), asset('starsLeft.png'),
+            asset('starsTop.png'), asset('starsBottom.png'),
+            asset('starsFront.png'), asset('starsBack.png')]}/>
         <Text
           style={{
             backgroundColor: '#777879',
