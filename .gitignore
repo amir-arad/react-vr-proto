@@ -5,3 +5,4 @@ yarn-error.log
 *.js.meta
 node_modules/
 build/
+yarn.lock
