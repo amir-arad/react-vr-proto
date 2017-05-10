@@ -14,9 +14,9 @@ export default class proto extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={[asset('starsRight.png'), asset('starsLeft.png'),
-            asset('starsTop.png'), asset('starsBottom.png'),
-            asset('starsFront.png'), asset('starsBack.png')]}/>
+        <Pano source={[asset('stars/right.png'), asset('stars/left.png'),
+            asset('stars/top.png'), asset('stars/bottom.png'),
+            asset('stars/front.png'), asset('stars/back.png')]}/>
           <PointLight />
           <Model
               lit={true}
