@@ -6,8 +6,18 @@
 import {VRInstance} from 'react-vr-web';
 
 function init(bundle, parent, options) {
-  const vr = new VRInstance(bundle, 'Playground', parent, {
-    // Add custom options here
+  const vr = new VRInstance(bundle, 'proto', parent, {
+	  enableHotReload: true,
+	  raycasters: [
+		  {
+			  getType: () => "simple",
+			  getRayOrigin: () => [0, 0, 0],
+			  getRayDirection: () => [0, 0, -1],
+			  drawsCursor: () => true
+		  } // Add SimpleRaycaster to the options
+	  ],
+	  cusorVisibility: 'visible', //'auto'
+	  // Add custom options here
     ...options,
   });
   vr.render = function() {
