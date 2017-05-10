@@ -12,7 +12,7 @@ import {
     NativeModules
 } from 'react-vr';
 
-const RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+const RCTDeviceEventEmitter = require('react-native/Libraries/EventEmitter/RCTDeviceEventEmitter');
 
 const styles = StyleSheet.create({
     waiting: {
