@@ -83,7 +83,7 @@ export class GamepadController {
 
     handleAxisEvent(evt) {
         this.axes[evt.axis] = evt.value;
-        if (evt.axis === 1) console.log(this.axes[evt.axis], evt);
+      //  if (evt.axis === 1) console.log(this.axes[evt.axis], evt);
     }
 
     handlePressEvent(evt, isPressed) {

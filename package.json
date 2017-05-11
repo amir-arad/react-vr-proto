@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "color-convert": "1.9.0",
+    "lodash": "4.17.4",
     "ovrui": "1.1.0",
     "react": "15.4.2",
     "react-native": "0.42.3",
