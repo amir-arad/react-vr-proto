@@ -5,6 +5,8 @@ export class SpaceFrigate6 extends React.Component {
 
 	render() {
 		const materialAsset = asset('space-frigate-6/main.mtl');
+		const materialAsset2 =  {uri:this.props.materialUrl};
+		// debugger;
 		return <View style={this.props.style}>
 			<View style={{height:20, width:40}}>
 				<Model
@@ -12,7 +14,7 @@ export class SpaceFrigate6 extends React.Component {
 					lit={true}
 					source={{
 						obj: asset('space-frigate-6/1.obj'),
-						mtl: materialAsset
+						mtl: materialAsset2
 					}}
 				/>
 				<Model
@@ -20,7 +22,7 @@ export class SpaceFrigate6 extends React.Component {
 					lit={true}
 					source={{
 						obj: asset('space-frigate-6/2.obj'),
-						mtl: materialAsset
+						mtl: materialAsset2
 					}}
 				/>
 			</View>

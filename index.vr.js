@@ -53,7 +53,7 @@ export default class proto extends React.Component {
           <Button
             text="+"
             callback={() => {
-              console.log(this.state.zoom);
+            //  console.log(this.state.zoom);
               this.setState(prevState => ({ zoom: prevState.zoom - 5 }));
               }}
           />
@@ -61,7 +61,7 @@ export default class proto extends React.Component {
           <Button
             text="-"
             callback={() => {
-              console.log(this.state.zoom);
+            //  console.log(this.state.zoom);
               this.setState(prevState => ({ zoom: prevState.zoom + 5 }));
               }}
           />
