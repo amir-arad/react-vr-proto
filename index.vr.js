@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './vr/components/button';
+import Shawarma from './vr/components/shawarma';
 import {
 	PointLight,
 	Model,
@@ -16,27 +17,10 @@ export default class proto extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rotateYValue: new Animated.Value(0),
       zoom: -70,
     };
-    this.rotateModel = this.rotateModel.bind(this);
   }
 
-  rotateModel() {
-    this.state.rotateYValue.setValue(0); // Start large
-    Animated.timing(
-      // Base: spring, decay, timing
-      this.state.rotateYValue, // Animate `bounceValue`
-      {
-        toValue: 360, // Animate to smaller size
-        duration: 4000,
-      }
-    ).start(this.rotateModel); // Start the animation
-  }
-  componentDidMount() {
-    this.rotateModel();
-  }
-  
   render() {
     return (
       <View>
@@ -51,7 +35,7 @@ export default class proto extends React.Component {
           ]}
         />
         <PointLight />
-        <View style={{ transform: [{translate: [-2,0,-4]}]}} >
+        <View style={{ transform: [ {translate: [-2,0,-4]}]}} >
           <Button
             text="+"
             callback={() => {
@@ -68,30 +52,16 @@ export default class proto extends React.Component {
               }}
           />
         </View>
-        <View
-          style={{
-            transform: [{ translate: [0, 0, this.state.zoom] }, { scale: 1 }],
-            flexDirection: "column",
-            height: 1,
-            padding: 0.2
-          }}>
-          <Animated.View
-            style={{
-              transform: [
-                { rotateY: this.state.rotateYValue },
-                { translate: [0, 0, 0] },
-                { scale: 1 }
-              ]
-            }}>
-            <Model
-              lit={true}
-              style={{ transform: [{ translate: [0, -5, 0] }, { scale: 1 }] }}
-              texture={asset("space_frigate_6_color.png")}
-              source={{
-                obj: asset("space_frigate_6.obj")
-              }}
-            />
-          </Animated.View>
+        <View style={{ transform: [ {translate: [0,0,this.state.zoom]}]}}>
+          <Shawarma>
+              <Model
+                lit={true}
+                texture={asset("space_frigate_6_color.png")}
+                source={{
+                  obj: asset("space_frigate_6.obj")
+                }}
+              />
+          </Shawarma>
         </View>
       </View>
     );
