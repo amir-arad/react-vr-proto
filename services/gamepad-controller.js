@@ -1,6 +1,12 @@
 import {NativeModules} from 'react-vr';
 const RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
 
+
+export const LEFT_X = 0;
+export const LEFT_Y = 1;
+export const RIGHT_X = 2;
+export const RIGHT_Y = 3;
+
 export class GamepadController {
     controllers;
     buttons = [];
@@ -84,13 +90,8 @@ export class GamepadController {
         this.buttons[evt.button] = true;
     }
 
-    getJoystickPosition(stickId = 'left') {
-        switch (stickId) {
-            case 'left':
-                return {x: this.axes[0], y: this.axes[1]}
-            case 'right':
-                return {x: this.axes[2], y: this.axes[3]}
-        }
+	getPosition(axis){
+		return this.axes[axis];
     }
 }
 
