@@ -6,14 +6,13 @@ import {GamepadController, LEFT_X, LEFT_Y, RIGHT_X, RIGHT_Y} from "../services/g
 import {throttle} from 'lodash';
 
 const HUE_LIMIT = 360;
-const LIGHTNESS_LIMIT = 100;
+const LIGHTNESS = 50;
 const SATURATION = 100;
 const CYCLE_IN_FRAMES = 100;
 const EPSILON = 0.4;
 
-function color([hue, lightness]){
-	console.log('lightness', lightness);
-	return hsl.rgb(hue, 100, lightness).map(c => (c / 255).toPrecision(3)).join(' ');
+function color(hue){
+	return hsl.rgb(hue, SATURATION, LIGHTNESS).map(c => (c / 255).toPrecision(3)).join(' ');
 }
 
 function makeMaterial(name, m){
@@ -46,25 +45,24 @@ export class EditableShip extends React.Component {
 		this.gamepad.registerControllerEvents();
 		this.state = {
 			materials : {
-				Hull: {d:[0,50], s:[60,100]},
-				Cabin: {d:[230,50], s:[230,100]},
-				Wings: {d:[230,50], s:[230,100]}
-			},
-			selectedPart : 'Hull'
+				Hull: {d:[0], s:[60]},
+				Cabin: {d:[230], s:[230]},
+				Wings: {d:[230], s:[230]}
+			}
 		};
 	}
 	updateColors = () => {
 		requestAnimationFrame(this.updateColors);
-		this.updateColor(this.gamepad.getPosition(LEFT_X), this.state.materials.Hull.d, 0, HUE_LIMIT);
-		this.updateColor(this.gamepad.getPosition(LEFT_Y), this.state.materials.Hull.d, 1, LIGHTNESS_LIMIT);
-		this.updateColor(this.gamepad.getPosition(RIGHT_X), this.state.materials.Hull.s, 0, HUE_LIMIT);
-		this.updateColor(this.gamepad.getPosition(RIGHT_Y), this.state.materials.Hull.s, 1, LIGHTNESS_LIMIT);
+		this.updateColor(this.gamepad.getPosition(LEFT_X), this.state.materials.Hull.d);
+		this.updateColor(this.gamepad.getPosition(LEFT_Y), this.state.materials.Hull.s);
+		this.updateColor(this.gamepad.getPosition(RIGHT_X), this.state.materials.Wings.d);
+		this.updateColor(this.gamepad.getPosition(RIGHT_Y), this.state.materials.Wings.s);
 	};
 
-	updateColor(gpPos, color, colotId, limit) {
+	updateColor(gpPos, color) {
 		if (gpPos > EPSILON || gpPos < -EPSILON) {
 			console.log('gpPos', gpPos);
-			color[colotId] = (limit + color[colotId] + gpPos * limit / CYCLE_IN_FRAMES) % limit;
+			color[0] = (HUE_LIMIT + color[0] + gpPos * HUE_LIMIT / CYCLE_IN_FRAMES) % HUE_LIMIT;
 			this.update();
 		}
 	}
