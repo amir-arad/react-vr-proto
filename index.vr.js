@@ -10,6 +10,7 @@ import {
 	View,
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
+import {SpaceFrigate6} from './components/space-frigate-6';
 const textStyle = {
 	backgroundColor: '#777879',
 	fontSize: 0.8,
@@ -22,21 +23,15 @@ const textStyle = {
 };
 export default class proto extends React.Component {
 	render() {
+		const asset1 = asset('space-frigate-6/main.mtl');
 		return (
 			<View>
-				<Pano source={[asset('stars/right.png'), asset('stars/left.png'),
-					asset('stars/top.png'), asset('stars/bottom.png'),
-					asset('stars/front.png'), asset('stars/back.png')]}/>
+				{/*<Pano source={[asset('stars/right.png'), asset('stars/left.png'),*/}
+					{/*asset('stars/top.png'), asset('stars/bottom.png'),*/}
+					{/*asset('stars/front.png'), asset('stars/back.png')]}/>*/}
 				<PointLight />
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
-					<Model
-						style={{height:20, width:40}}
-						lit={true}
-						texture={asset('space_frigate_6_color.png')}
-						source={{
-							obj: asset('space_frigate_6.obj')
-						}}
-					/>
+					<SpaceFrigate6 style={{transform: [{rotateY:150}]}}/>
 					<ListSelector
 						style={{width:13}}
 
