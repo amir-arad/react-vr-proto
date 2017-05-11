@@ -34,7 +34,7 @@ export default class proto extends React.Component {
 					{/*asset('stars/top.png'), asset('stars/bottom.png'),*/}
 					{/*asset('stars/front.png'), asset('stars/back.png')]}/>*/}
 				<PointLight />
-				{/*<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
+				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
 					<SpaceFrigate6 style={{transform: [{rotateY:150}]}}/>
 					<ListSelector
 						style={{width:13}}
@@ -60,7 +60,7 @@ export default class proto extends React.Component {
 							dimHeight={10}
 						/>
 					</ListSelector>
-				</View>*/}
+				</View>
 			</View>
 		);
 	}
