@@ -17,18 +17,24 @@ export default class proto extends React.Component {
     this.state = {
       rotateYValue: new Animated.Value(0),
     };
+    this.rotateModel = this
+      .rotateModel
+      .bind(this);
   }
   
-  componentDidMount() {
-    // this.state.rotateYValue.setValue(0);     // Start large
-    Animated.spring(                          // Base: spring, decay, timing
+  rotateModel() {
+    this.state.rotateYValue.setValue(0);     // Start large
+    Animated.timing(                          // Base: spring, decay, timing
       this.state.rotateYValue,                 // Animate `bounceValue`
       {
-        toValue: 30,                         // Animate to smaller size
-        friction: 1,
-        tension: 60                          // Bouncier spring
+        toValue: 360,                         // Animate to smaller size
+        duration: 4000,
       }
-    ).start();                                // Start the animation
+    ).start(this.rotateModel);                                // Start the animation
+
+  }
+  componentDidMount() {
+    this.rotateModel()
   }
 
   render() {
@@ -61,7 +67,6 @@ export default class proto extends React.Component {
                   obj: asset('space_frigate_6.obj')
                 }} />
               </Animated.View>
-              
             </View>
       </View>
     );
