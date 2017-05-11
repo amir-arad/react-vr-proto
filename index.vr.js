@@ -69,11 +69,10 @@ export default class proto extends React.Component {
         </View>
         <View style={{ transform: [ {translate: [0,0,this.state.zoom]}]}}>
           <Shawarma style={{height:40}}>
-              <SpaceFrigate6 />
+						<SpaceFrigate6 />
           </Shawarma>
         </View>
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
-					{/*<ControllerState></ControllerState>*/}
 					<ListSelector
 						style={{width:13, transform: [{translate: [60,0,0]}]}}
 
