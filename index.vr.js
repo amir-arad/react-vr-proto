@@ -10,7 +10,7 @@ import {
 	View,
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
-import {SpaceFrigate6} from './components/space-frigate-6';
+import {EditableShip} from './components/editable-ship';
 const textStyle = {
 	backgroundColor: '#777879',
 	fontSize: 0.8,
@@ -31,7 +31,7 @@ export default class proto extends React.Component {
 					{/*asset('stars/front.png'), asset('stars/back.png')]}/>*/}
 				<PointLight />
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
-					<SpaceFrigate6 style={{transform: [{rotateY:150}]}}/>
+					<EditableShip style={{transform: [{rotateY:150}]}}/>
 					<ListSelector
 						style={{width:13}}
 
