@@ -15,9 +15,9 @@ Ks 0.200000 0.900000 0.900000
 Ni 1.000000
 d 1.000000
 illum 2
-# map_Bump space_frigate_6_bump.gif
-# map_Kd space_frigate_6_color.png
-# map_Ns space_frigate_6_specular.png
+map_Bump space_frigate_6_bump.gif
+map_Kd space_frigate_6_color.png
+map_Ns space_frigate_6_specular.png
 
 newmtl hull
 Ns 96.078431
@@ -27,9 +27,9 @@ Ks 0.690196 0.8 0.001176
 Ni 1.000000
 d 1.000000
 illum 2
-# map_Bump space_frigate_6_bump.gif
-# map_Kd space_frigate_6_color.png
-# map_Ns space_frigate_6_specular.png
+map_Bump space_frigate_6_bump.gif
+map_Kd space_frigate_6_color.png
+map_Ns space_frigate_6_specular.png
 `;
 	return `data:,${encodeURI(materialText)}`;
 }
