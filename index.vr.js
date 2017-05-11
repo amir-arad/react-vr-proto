@@ -1,31 +1,17 @@
 import React from 'react';
-import Button from './vr/components/button';
-import Shawarma from './vr/components/shawarma';
+import Button from './components/button';
+import Shawarma from './components/shawarma';
 import {
 	PointLight,
-  Scene,
-	Model,
 	AppRegistry,
 	asset,
 	Box,
 	Pano,
-	Text,
-	View,
-  Animated
+	View
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
 import {EditableShip} from './components/editable-ship';
-import {ControllerState} from './components/controller-state';
-const textStyle = {
-	backgroundColor: '#777879',
-	fontSize: 0.8,
-	fontWeight: '400',
-	layoutOrigin: [0.5, 0.5],
-	paddingLeft: 0.2,
-	paddingRight: 0.2,
-	textAlign: 'center',
-	textAlignVertical: 'center'
-};
+
 
 export default class proto extends React.Component {
   constructor(props) {
