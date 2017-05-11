@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        transform: [{ translate: [0, 1, -5] }],
+        transform: [{ translate: [1, 3, -5] }],
     },
 });
 
@@ -96,21 +96,24 @@ class SliderState extends React.Component {
                     backgroundColor: this.state.hasFocus ? '#333333' : 'black',
                 }}
                 onEnter={() => this.setState({ hasFocus: true })}
-                onExit={() => this.setState({ hasFocus: false })}
-            >
+                onExit={() => this.setState({ hasFocus: false })} >
+                <View style={{ width: 0.4, height: 0.1, backgroundColor: 'white', paddingLeft: 0.05, paddingRight: 0.05 }}>
+                    <Text style={{ fontSize: 0.08, textAlign: 'center', color: 'purple' }}>
+                        {Math.round(this.props.value * 100)}
+                    </Text>
+                </View>
                 <View style={{ width: 0.5, height: 0.1 }}>
                     <Text style={{ fontSize: 0.08, textAlign: 'center' }}>
                         {this.props.id}
                     </Text>
                 </View>
-                <View style={{ width: 0.4, height: 0.1 }}>
-                    <View
-                        style={{
-                            width: 0.4 * (this.props.value + 1) / 2,
-                            height: 0.1,
-                            backgroundColor: 'yellow',
-                        }}
-                    />
+                <View style={{ width: 0.4 * (this.props.value + 1) / 2, height: 0.1 }}>
+                    <View style={{
+                        width: 0.4 * (this.props.value + 1) / 2,
+                        height: 0.1,
+                        backgroundColor: 'darkgrey',
+                    }} >
+                    </View>
                 </View>
             </View>
         );

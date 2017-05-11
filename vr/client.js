@@ -16,7 +16,7 @@ function init(bundle, parent, options) {
 			  drawsCursor: () => true
 		  } // Add SimpleRaycaster to the options
 	  ],
-	  cusorVisibility: 'visible', //'auto'
+	  cursorVisibility: 'visible', //'auto'
 	  // Add custom options here
     ...options,
   });
