@@ -2,6 +2,8 @@ import React from "react";
 import { View, Animated} from "react-vr";
 
 
+const FULL_CIRCLE_TIME = 4000;
+const FULL_CIRCLE_VALUE = 360;
 export default class Shawarma extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,14 +13,14 @@ export default class Shawarma extends React.Component {
 
 	}
 	rotateModel(){
-		this.state.rotateYValue.setValue(this.state.rotateYValue.toJSON() % 360); // Start large
+		this.state.rotateYValue.setValue(this.state.rotateYValue.toJSON() % FULL_CIRCLE_VALUE); // Start large
 		this.animation = Animated.timing(
 			// Base: spring, decay, timing
 			this.state.rotateYValue, // Animate `bounceValue`
 			{
 				easing: (i)=>i,
-				toValue: 360, // Animate to smaller size
-				duration: 4000 * (360 - this.state.rotateYValue.toJSON()) / 360,
+				toValue: FULL_CIRCLE_VALUE, // Animate to smaller size
+				duration: FULL_CIRCLE_TIME * (FULL_CIRCLE_VALUE - this.state.rotateYValue.toJSON()) / FULL_CIRCLE_VALUE,
 			}
 		);
 		this.animation.start(this.onAnimationEnd); // Start the animation
