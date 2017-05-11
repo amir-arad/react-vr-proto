@@ -5,7 +5,6 @@ export class SpaceFrigate6 extends React.Component {
 
 	render() {
 		const materialAsset = asset('space-frigate-6/main.mtl');
-		debugger;
 		return <View style={this.props.style}>
 			<View style={{height:20, width:40}}>
 				<Model

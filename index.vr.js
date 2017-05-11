@@ -3,6 +3,7 @@ import Button from './vr/components/button';
 import Shawarma from './vr/components/shawarma';
 import {
 	PointLight,
+  Scene,
 	Model,
 	AppRegistry,
 	asset,
@@ -14,6 +15,7 @@ import {
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
 import {SpaceFrigate6} from './components/space-frigate-6';
+import {ControllerState} from './components/controller-state';
 
 const textStyle = {
 	backgroundColor: '#777879',
@@ -23,8 +25,9 @@ const textStyle = {
 	paddingLeft: 0.2,
 	paddingRight: 0.2,
 	textAlign: 'center',
-	textAlignVertical: 'center',
+	textAlignVertical: 'center'
 };
+
 export default class proto extends React.Component {
   constructor(props) {
     super(props);
@@ -66,11 +69,10 @@ export default class proto extends React.Component {
         </View>
         <View style={{ transform: [ {translate: [0,0,this.state.zoom]}]}}>
           <Shawarma style={{height:40}}>
-              <SpaceFrigate6 />
+						<SpaceFrigate6 />
           </Shawarma>
         </View>
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
-					
 					<ListSelector
 						style={{width:13, transform: [{translate: [60,0,0]}]}}
 
