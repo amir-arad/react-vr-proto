@@ -11,14 +11,19 @@ import {
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
 import {EditableShip} from './components/editable-ship';
-
+import {GamepadController} from './services/gamepad-controller';
 
 export default class proto extends React.Component {
+	gamepadController;
+
   constructor(props) {
     super(props);
     this.state = {
-      zoom: -70,
+      zoom: -70
     };
+
+		this.gamepadController = new GamepadController;
+		this.gamepadController.registerControllerEvents();	
   }
 
   render() {
