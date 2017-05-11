@@ -1,39 +1,29 @@
 import React from 'react';
-import Button from './vr/components/button';
-import Shawarma from './vr/components/shawarma';
+import Button from './components/button';
+import Shawarma from './components/shawarma';
 import {
 	PointLight,
-  Scene,
-	Model,
 	AppRegistry,
 	asset,
 	Box,
 	Pano,
-	Text,
-	View,
-  Animated
+	View
 } from 'react-vr';
 import {ListSelector} from './components/list-selector';
-import {SpaceFrigate6} from './components/space-frigate-6';
-import {ControllerState} from './components/controller-state';
-
-const textStyle = {
-	backgroundColor: '#777879',
-	fontSize: 0.8,
-	fontWeight: '400',
-	layoutOrigin: [0.5, 0.5],
-	paddingLeft: 0.2,
-	paddingRight: 0.2,
-	textAlign: 'center',
-	textAlignVertical: 'center'
-};
+import {EditableShip} from './components/editable-ship';
+import {GamepadController} from './services/gamepad-controller';
 
 export default class proto extends React.Component {
+	gamepadController;
+
   constructor(props) {
     super(props);
     this.state = {
-      zoom: -70,
+      zoom: -70
     };
+
+		this.gamepadController = new GamepadController;
+		this.gamepadController.registerControllerEvents();	
   }
 
   render() {
@@ -54,7 +44,7 @@ export default class proto extends React.Component {
           <Button
             text="+"
             callback={() => {
-              console.log(this.state.zoom);
+            //  console.log(this.state.zoom);
               this.setState(prevState => ({ zoom: prevState.zoom - 5 }));
               }}
           />
@@ -62,14 +52,14 @@ export default class proto extends React.Component {
           <Button
             text="-"
             callback={() => {
-              console.log(this.state.zoom);
+            //  console.log(this.state.zoom);
               this.setState(prevState => ({ zoom: prevState.zoom + 5 }));
               }}
           />
         </View>
         <View style={{ transform: [ {translate: [0,0,this.state.zoom]}]}}>
           <Shawarma style={{height:40}}>
-						<SpaceFrigate6 />
+						<EditableShip />
           </Shawarma>
         </View>
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
