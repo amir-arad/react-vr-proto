@@ -15,22 +15,12 @@ import {
 const RCTDeviceEventEmitter = require('react-native/Libraries/EventEmitter/RCTDeviceEventEmitter');
 
 const styles = StyleSheet.create({
-    waiting: {
-        backgroundColor: 'black',
-        fontSize: 0.3,
-        layoutOrigin: [0.5, 0.5],
-        paddingLeft: 0.2,
-        paddingRight: 0.2,
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        transform: [{ translate: [0, 0, -3] }],
-    },
     controllers: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        transform: [{ translate: [1, 3, -5] }],
-    },
+        backgroundColor: 'red',
+    }
 });
 
 class PressState extends React.Component {
@@ -66,7 +56,7 @@ class PressState extends React.Component {
                     style={{
                         width: 0.1,
                         height: 0.1,
-                        backgroundColor: this.props.pressed ? 'blue' : 'black',
+                        backgroundColor: this.props.pressed ? 'blue' : 'black'
                     }}
                 />
             </View>
@@ -111,7 +101,7 @@ class SliderState extends React.Component {
                     <View style={{
                         width: 0.4 * (this.props.value + 1) / 2,
                         height: 0.1,
-                        backgroundColor: 'darkgrey',
+                        backgroundColor: 'darkgrey'
                     }} >
                     </View>
                 </View>
@@ -199,7 +189,7 @@ export class ControllerState extends React.Component {
         }
 
         return (
-            <View style={styles.controllers}>
+            <View>
                 <View style={style}>
                     {buttons}
                     {axes}
