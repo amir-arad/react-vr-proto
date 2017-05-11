@@ -35,6 +35,7 @@ export default class proto extends React.Component {
 					{/*asset('stars/front.png'), asset('stars/back.png')]}/>*/}
 				<PointLight />
 				<View style={{flex: 1, flexDirection: 'row',  alignItems: 'center', transform: [{translate: [0, 0, -50]}]}}>
+					{/*<ControllerState></ControllerState>*/}
 					<SpaceFrigate6 style={{transform: [{rotateY:150}]}}/>
 					<ListSelector
 						style={{width:13}}

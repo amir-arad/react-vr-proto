@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         backgroundColor: 'red',
+        transform: [{ scale : 10 }]
     }
 });
 
@@ -189,7 +190,7 @@ export class ControllerState extends React.Component {
         }
 
         return (
-            <View>
+            <View style={styles.controllers}>
                 <View style={style}>
                     {buttons}
                     {axes}
