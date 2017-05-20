@@ -37,7 +37,6 @@ export class GamepadController {
 
     registerControllerEvents() {
         RCTDeviceEventEmitter.addListener('controllerConnected', evt => {
-            debugger;
             console.log('controller', evt);
             let added = false;
             const nextControllers = this.controllers.map(controller => {
